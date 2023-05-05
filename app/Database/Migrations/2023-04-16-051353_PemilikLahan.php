@@ -38,6 +38,6 @@ class PemilikLahan extends Migration
     public function down()
     {
         //
-        $this->forge->dropTable('pemilih_lahan');
+        $this->forge->dropTable('pemilik_lahan');
     }
 }
