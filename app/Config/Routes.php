@@ -39,6 +39,10 @@ $routes->get('/pemilik-lahan/login', 'AuthControllerPemilikLahan::index', ['filt
 $routes->post('/pemilik-lahan/login', 'AuthControllerPemilikLahan::process_login');
 $routes->post('/pemilik-lahan/logout', 'AuthControllerPemilikLahan::process_logout');
 
+$routes->get('/pemilik-lahan/petani', 'HomePemilikLahan::listPetani');
+$routes->get('/pemilik-lahan/tambah-petani', 'HomePemilikLahan::tambahPetani');
+$routes->post('/pemilik-lahan/tambah-petani', 'HomePemilikLahan::processTambahPetani');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

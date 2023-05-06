@@ -3,9 +3,9 @@
 - [x] Login untuk petani
 - [x] Logout untuk petani
 - [x] Home untuk petani
-- [ ] Login untuk pemilik lahan
-- [ ] Logout untuk pemilik lahan
-- [ ] Home Untuk pemilik lahan
+- [x] Login untuk pemilik lahan
+- [x] Logout untuk pemilik lahan
+- [x] Home Untuk pemilik lahan
 
 ## Petani
 
@@ -24,5 +24,3 @@
 | name       | VARHCHAR  |
 | email      | VARCHAR   |
 | password   | VARCHAR   |
-
-##
