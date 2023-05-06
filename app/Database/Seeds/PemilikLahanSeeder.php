@@ -10,7 +10,7 @@ class PemilikLahanSeeder extends Seeder
     {
         $data = [
             'name' => 'Pemilik Lahan',
-            'email' => 'pemilih_lahan@sistem-irigasi.com',
+            'email' => 'pemilik_lahan@sistem-irigasi.com',
             'password' => password_hash('secret', PASSWORD_BCRYPT),
         ];
 
