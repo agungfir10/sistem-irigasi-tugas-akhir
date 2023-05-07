@@ -8,9 +8,9 @@
 - [x] Home Untuk pemilik lahan
 - [x] Hapus Petani
 - [x] Edit Petani
-- [ ] Kontrol Pintu Untuk Petani
-- [ ] Melihat Daftar Kontrol Untuk Pemilik Lahan
-- [ ] Ketinggian Air Pintu Irigasi untuk Petani dan Pemilik Lahan
+- [x] Kontrol Pintu Untuk Petani
+- [x] Melihat Daftar Kontrol Untuk Pemilik Lahan
+- [x] Ketinggian Air Pintu Irigasi untuk Petani dan Pemilik Lahan
 
 ## Petani
 
