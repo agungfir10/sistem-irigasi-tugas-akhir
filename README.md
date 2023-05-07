@@ -7,7 +7,7 @@
 - [x] Logout untuk pemilik lahan
 - [x] Home Untuk pemilik lahan
 - [x] Hapus Petani
-- [ ] Edit Petani
+- [x] Edit Petani
 - [ ] Kontrol Pintu Untuk Petani
 - [ ] Melihat Daftar Kontrol Untuk Pemilik Lahan
 - [ ] Ketinggian Air Pintu Irigasi untuk Petani dan Pemilik Lahan

@@ -35,7 +35,8 @@
                             </div>
                         <?php endif; ?>
                         <?php if (!count($user_selected) == 0): ?>
-                            <div class="form-group">
+                            <input type="hidden" value="<?= $user_selected['id'] ?>" name="id" id="id">
+                            <div class=" form-group">
                                 <label for="name">Nama</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama"
                                     value="<?= $user_selected['name'] ?>">

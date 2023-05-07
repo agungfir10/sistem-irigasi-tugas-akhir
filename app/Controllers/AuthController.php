@@ -29,11 +29,11 @@ class AuthController extends BaseController
 
                 return redirect()->to(base_url('/'));
             } else {
-                session()->setFlashdata('error', 'Username dan Password Salah');
+                session()->setFlashdata('error', 'Username atau Password Salah');
                 return redirect()->back();
             }
         } else {
-            session()->setFlashdata('error', 'Username dan Password Salah');
+            session()->setFlashdata('error', 'Username atau Password Salah');
             return redirect()->back();
         }
     }

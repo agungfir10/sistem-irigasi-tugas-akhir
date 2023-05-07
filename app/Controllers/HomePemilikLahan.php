@@ -165,7 +165,7 @@ class HomePemilikLahan extends BaseController
             'password' => $passwordHash
         ];
 
-        $user->update($id, $data);
+        $new = $user->where('id', $id)->update($id, $data);
 
         session()->setFlashdata('status', 'success');
         session()->setFlashdata('message', 'Sukses memperbarui petani');
