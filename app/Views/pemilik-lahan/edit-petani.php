@@ -23,27 +23,36 @@
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
-                    <form class="p-4" method="post" action="<?= base_url('pemilik-lahan/tambah-petani') ?>">
+                    <form class="p-4" method="post" action="<?= base_url('pemilik-lahan/edit-petani') ?>">
                         <?php if (session()->get('status')): ?>
                             <div class="alert alert-<?= session()->get('status') ?>">
                                 <?= session()->get('message') ?>
                             </div>
                         <?php endif; ?>
-                        <div class="form-group">
-                            <label for="name">Nama</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Alamat email</label>
-                            <input type="email" class="form-control" id="email" name="email"
-                                aria-describedby="emailHelp" placeholder="Masukkan email">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password"
-                                placeholder="Password">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <?php if (count($user_selected) == 0): ?>
+                            <div class="alert alert-warning">
+                                User tidak ditemukan
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!count($user_selected) == 0): ?>
+                            <div class="form-group">
+                                <label for="name">Nama</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama"
+                                    value="<?= $user_selected['name'] ?>">
+                            </div>
+                            <div class=" form-group">
+                                <label for="email">Alamat email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    aria-describedby="emailHelp" placeholder="Masukkan email"
+                                    value="<?= $user_selected['email'] ?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        <?php endif; ?>
                     </form>
                 </div>
 

@@ -33,6 +33,7 @@ class AuthVerifyFilter implements FilterInterface
         ])->first();
 
         if (!is_null($userFound)) {
+            session()->remove('pemilik-lahan');
             return redirect()->to(base_url('/'));
         }
     }

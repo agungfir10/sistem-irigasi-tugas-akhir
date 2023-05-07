@@ -42,6 +42,9 @@ $routes->post('/pemilik-lahan/logout', 'AuthControllerPemilikLahan::process_logo
 $routes->get('/pemilik-lahan/petani', 'HomePemilikLahan::listPetani');
 $routes->get('/pemilik-lahan/tambah-petani', 'HomePemilikLahan::tambahPetani');
 $routes->post('/pemilik-lahan/tambah-petani', 'HomePemilikLahan::processTambahPetani');
+$routes->post('/pemilik-lahan/hapus-petani', 'HomePemilikLahan::deletePetani');
+$routes->get('/pemilik-lahan/edit-petani', 'HomePemilikLahan::editPetani', ['filter' => 'authpemiliklahan']);
+$routes->post('/pemilik-lahan/edit-petani', 'HomePemilikLahan::processEditPetani', ['filter' => 'authpemiliklahan']);
 
 /*
  * --------------------------------------------------------------------

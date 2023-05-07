@@ -30,6 +30,11 @@
                         <h6 class="m-0 font-weight-bold text-primary">Data Petani</h6>
                     </div>
                     <div class="card-body">
+                        <?php if (session()->get('status')): ?>
+                            <div class="alert alert-<?= session()->get('status') ?>">
+                                <?= session()->get('message') ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -48,7 +53,7 @@
                                 </tfoot>
                                 <tbody>
                                     <?php if (isset($listPetani)): ?>
-                                        <?php foreach ($listPetani as $petani): ?>
+                                        <?php foreach ($listPetani as $key => $petani): ?>
                                             <tr>
                                                 <td>
                                                     <?= $petani['name'] ?>
@@ -57,8 +62,14 @@
                                                     <?= $petani['email'] ?>
                                                 </td>
                                                 <td>
-                                                    <a href="" class="btn btn-danger btn-sm">Hapus</a>
-                                                    <a href="" class="btn btn-info btn-sm">Update</a>
+                                                    <a class="btn btn-sm btn-danger" href="#" data-toggle="modal"
+                                                        data-target="#deleteModal<?= $key ?>">
+                                                        Hapus
+                                                    </a>
+                                                    <a class="btn btn-info btn-sm"
+                                                        href="/pemilik-lahan/edit-petani?id=<?= $petani['id'] ?>">
+                                                        Edit
+                                                    </a>
                                                 </td>
                                             </tr>
                                         <?php endforeach ?>
@@ -88,6 +99,37 @@
 
     </div>
     <!-- End of Content Wrapper -->
+
+    <!-- Logout Modal-->
+    <?php if (isset($listPetani)): ?>
+        <?php foreach ($listPetani as $key => $petani): ?>
+            <div class="modal fade" id="deleteModal<?= $key ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus
+                                <?= $petani['name'] ?>?
+                            </h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Tekan hapus untuk menghapus petani dengan email
+                            <?= $petani['email'] ?>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="<?= base_url('/pemilik-lahan/hapus-petani'); ?>" method="post">
+                                <input type="hidden" value="<?= $petani['email'] ?>" name='email' id="email">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+    <?php endif ?>
 
 </div>
 <!-- End of Page Wrapper -->

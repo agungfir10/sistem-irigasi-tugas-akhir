@@ -6,7 +6,7 @@
 - [x] Login untuk pemilik lahan
 - [x] Logout untuk pemilik lahan
 - [x] Home Untuk pemilik lahan
-- [ ] Hapus Petani
+- [x] Hapus Petani
 - [ ] Edit Petani
 - [ ] Kontrol Pintu Untuk Petani
 - [ ] Melihat Daftar Kontrol Untuk Pemilik Lahan
