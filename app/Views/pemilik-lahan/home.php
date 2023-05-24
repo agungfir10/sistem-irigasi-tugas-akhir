@@ -25,14 +25,16 @@
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                 <?= $user['name'] ?>
                             </span>
                             <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                         </a>
                         <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
@@ -57,7 +59,7 @@
                 <div class="row">
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="col-xl-4 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -65,15 +67,11 @@
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Pintu 1
                                         </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800 row">
-                                            <div class="custom-control custom-switch ml-2" style='width:fit-content;'>
-                                                <input type="checkbox" class="custom-control-input" id="switch-pintu-1">
-                                                <label class="custom-control-label" for="switch-pintu-1"></label>
-                                            </div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <p id='pintu-1'>-</p>
                                         </div>
-                                        <div id="ketinggian-air">
-                                            Ketinggian : 130 cm
+                                        <div>
+                                            <p id="ketinggian-air">Ketinggian : - cm</p>
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +80,7 @@
                     </div>
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="col-xl-4 col-md-6 mb-4">
                         <div class="card border-left-success shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -100,7 +98,7 @@
                     </div>
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="col-xl-4 col-md-6 mb-4">
                         <div class="card border-left-info shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
@@ -114,24 +112,6 @@
                                                     <p id='pintu-3'>-</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-warning shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pintu 4
-                                        </div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            <p id='pintu-4'>-</p>
                                         </div>
                                     </div>
                                 </div>
@@ -164,12 +144,6 @@
 </div>
 <!-- End of Page Wrapper -->
 <script type="module">
-    const pintu1El = document.getElementById('pintu-1');
-    const pintu2El = document.getElementById('pintu-2');
-    const pintu3El = document.getElementById('pintu-3');
-    const pintu4El = document.getElementById('pintu-4');
-    const switchPintu1 = document.getElementById('switch-pintu-1');
-    const ketinggianAirPintu1 = document.getElementById('ketinggian-air');
 
     import {
         initializeApp
@@ -196,34 +170,25 @@
     const pintu1Ref = ref(db, 'pintu_1')
 
     onValue(pintu1Ref, (snapshot) => {
-        const data = snapshot.val();
-        pintu1El.innerText = data.status ? 'Tertutup' : 'Terbuka'
-        ketinggianAirPintu1.innerText = `Ketinggian : ${data.ketinggian_air}`;
-
-        switchPintu1.addEventListener('click', () => {
-            set(ref(db, 'pintu_1/status'), !data.status);
-        })
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            $("#pintu-1").text(data.status ? 'Tertutup' : 'Terbuka')
+            $("#ketinggian-air").text(`Ketinggian : ${data.ketinggian_air}cm`)
+        }
     });
 
     const pintu2Ref = ref(db, 'pintu_2')
 
     onValue(pintu2Ref, (snapshot) => {
         const data = snapshot.val();
-        pintu2El.innerText = data ? 'Tertutup' : 'Terbuka'
+        $('#pintu-2').text(data.status ? 'Tertutup' : 'Terbuka')
     });
 
     const pintu3Ref = ref(db, 'pintu_3')
 
     onValue(pintu3Ref, (snapshot) => {
         const data = snapshot.val();
-        pintu3El.innerText = data.status ? 'Tertutup' : 'Terbuka'
-    });
-
-    const pintu4Ref = ref(db, 'pintu_4')
-
-    onValue(pintu4Ref, (snapshot) => {
-        const data = snapshot.val();
-        pintu4El.innerText = data.status ? 'Tertutup' : 'Terbuka'
+        $('#pintu-3').text(data.status ? 'Tertutup' : 'Terbuka')
     });
 </script>
 <?= $this->include('pemilik-lahan/partials/footer') ?>

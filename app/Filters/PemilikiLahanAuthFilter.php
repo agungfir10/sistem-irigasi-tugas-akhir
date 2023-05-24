@@ -33,7 +33,7 @@ class PemilikiLahanAuthFilter implements FilterInterface
         ])->first();
 
         if (is_null($userFound)) {
-            session()->destroy();
+            session()->remove('pemilik-lahan');
             return redirect()->to(base_url('/pemilik-lahan/login'));
         }
     }

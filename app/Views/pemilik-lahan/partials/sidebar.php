@@ -13,6 +13,12 @@
     </li>
 
     <li class="nav-item active">
+        <a class="nav-link" href="<?= base_url('pemilik-lahan/ketinggian-air') ?>">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Ketinggian Air</span></a>
+    </li>
+
+    <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('pemilik-lahan/petani') ?>">
             <i class="fas fa-fw fa-user"></i>
             <span>Daftar Petani</span></a>
