@@ -36,39 +36,20 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Aksi</th>
+                                        <th>No.</th>
+                                        <th>Ketinggian Air (cm)</th>
+                                        <th>Tanggal</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Aksi</th>
+                                        <th>No.</th>
+                                        <th>Ketinggian Air (cm)</th>
+                                        <th>Tanggal</th>
                                     </tr>
                                 </tfoot>
-                                <tbody>
-                                    <?php if (isset($listPetani)) : ?>
-                                        <?php foreach ($listPetani as $key => $petani) : ?>
-                                            <tr>
-                                                <td>
-                                                    <?= $petani['name'] ?>
-                                                </td>
-                                                <td>
-                                                    <?= $petani['email'] ?>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-sm btn-danger" href="#" data-toggle="modal" data-target="#deleteModal<?= $key ?>">
-                                                        Hapus
-                                                    </a>
-                                                    <a class="btn btn-info btn-sm" href="/pemilik-lahan/edit-petani?id=<?= $petani['id'] ?>">
-                                                        Edit
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach ?>
-                                    <?php endif ?>
+                                <tbody id="tbody-ketinggian-air">
+
                                 </tbody>
                             </table>
                         </div>
@@ -126,6 +107,65 @@
     <?php endif ?>
 
 </div>
-<!-- End of Page Wrapper -->
+<script type="module">
+    import {
+        initializeApp
+    } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js'
+    import {
+        getDatabase,
+        ref,
+        push,
+        onValue,
+        query,
+        limitToLast,
+        serverTimestamp,
+        set
+    } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"
 
+    const firebaseConfig = {
+        apiKey: 'pY7NZK4SENnSCujrhqCILsP225Iug5q8LD8d8pTc',
+        databaseURL: 'https://sistem-irigasi-f9d8b-default-rtdb.asia-southeast1.firebasedatabase.app'
+    };
+    const app = initializeApp(firebaseConfig);
+
+    const db = getDatabase(app);
+
+    const ketinggianAirRef = ref(db, "ketinggian_air");
+
+    onValue(ketinggianAirRef, (snapshot) => {
+        if (snapshot.exists()) {
+            let el;
+            let i = 0;
+            const obj = snapshot.val();
+            for (const property in obj) {
+                const dateHuman = Date(obj[property].tanggal * 1000)
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    timeZoneName: 'short'
+                };
+                const dateIndonesia = new Date(dateHuman).toLocaleDateString('id-ID', options)
+                const index = dateIndonesia.indexOf('pukul');
+                const start = dateIndonesia.slice(0, index - 1)
+                const end = dateIndonesia.slice(index + 5)
+                const datePrintable = start + end
+
+                i++
+                el += `
+                <tr>
+                    <td>${i}</td>
+                    <td>${obj[property].ketinggian_air}</td>
+                    <td>${datePrintable}</td>
+                </tr>`
+            }
+            $('#tbody-ketinggian-air').html(el)
+
+        }
+    })
+</script>
 <?= $this->include('pemilik-lahan/partials/footer') ?>
