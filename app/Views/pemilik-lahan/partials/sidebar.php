@@ -13,15 +13,22 @@
     </li>
 
     <li class="nav-item active">
+        <a class="nav-link" href="<?= base_url('pemilik-lahan/kontrol') ?>">
+            <i class="fas fa-fw fa-gamepad"></i>
+            <span>Kontrol</span></a>
+    </li>
+
+
+    <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('pemilik-lahan/ketinggian-air') ?>">
-            <i class="fas fa-fw fa-user"></i>
+            <i class="fas fa-fw fa-water"></i>
             <span>Ketinggian Air</span></a>
     </li>
 
     <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('pemilik-lahan/petani') ?>">
             <i class="fas fa-fw fa-user"></i>
-            <span>Daftar Petani</span></a>
+            <span>Petani</span></a>
     </li>
 
 </ul>

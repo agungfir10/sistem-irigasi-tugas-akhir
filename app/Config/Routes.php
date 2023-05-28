@@ -46,6 +46,7 @@ $routes->post('/pemilik-lahan/hapus-petani', 'HomePemilikLahan::deletePetani');
 $routes->get('/pemilik-lahan/edit-petani', 'HomePemilikLahan::editPetani', ['filter' => 'authpemiliklahan']);
 $routes->post('/pemilik-lahan/edit-petani', 'HomePemilikLahan::processEditPetani', ['filter' => 'authpemiliklahan']);
 $routes->get('/pemilik-lahan/ketinggian-air', 'KetinggianAirController::index', ['filter' => 'authpemiliklahan']);
+$routes->get('/pemilik-lahan/kontrol', 'KontrolController::index', ['filter' => 'authpemiliklahan']);
 
 /*
  * --------------------------------------------------------------------

@@ -167,7 +167,7 @@
 
     const db = getDatabase(app);
 
-    const pintu1Ref = ref(db, 'pintu_1')
+    const pintu1Ref = ref(db, 'controls/pintu_1')
 
     onValue(pintu1Ref, (snapshot) => {
         if (snapshot.exists()) {
@@ -177,14 +177,14 @@
         }
     });
 
-    const pintu2Ref = ref(db, 'pintu_2')
+    const pintu2Ref = ref(db, 'controls/pintu_2')
 
     onValue(pintu2Ref, (snapshot) => {
         const data = snapshot.val();
         $('#pintu-2').text(data.status ? 'Tertutup' : 'Terbuka')
     });
 
-    const pintu3Ref = ref(db, 'pintu_3')
+    const pintu3Ref = ref(db, 'controls/pintu_3')
 
     onValue(pintu3Ref, (snapshot) => {
         const data = snapshot.val();
