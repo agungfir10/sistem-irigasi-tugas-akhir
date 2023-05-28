@@ -22,16 +22,11 @@ class AuthController extends BaseController
         ])->first();
 
         if ($userFound) {
-            if (password_verify($password, $userFound['password'])) {
-                session()->set([
-                    'email' => $userFound['email'],
-                ]);
+            session()->set([
+                'email' => $userFound['email'],
+            ]);
 
-                return redirect()->to(base_url('/'));
-            } else {
-                session()->setFlashdata('error', 'Username atau Password Salah');
-                return redirect()->back();
-            }
+            return redirect()->to(base_url('/'));
         } else {
             session()->setFlashdata('error', 'Username atau Password Salah');
             return redirect()->back();
@@ -44,5 +39,4 @@ class AuthController extends BaseController
         session()->remove('email');
         return redirect()->to('/');
     }
-
 }
