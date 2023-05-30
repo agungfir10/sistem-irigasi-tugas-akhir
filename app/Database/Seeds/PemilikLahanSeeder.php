@@ -14,6 +14,11 @@ class PemilikLahanSeeder extends Seeder
             'password' => password_hash('secret', PASSWORD_BCRYPT),
         ];
 
+        $data = [
+            'name' => 'Agung Firmansyah',
+            'email' => 'agungfirid@gmail.com',
+            'password' => password_hash('secret', PASSWORD_BCRYPT),
+        ];
 
         // Using Query Builder
         $this->db->table('pemilik_lahan')->insert($data);

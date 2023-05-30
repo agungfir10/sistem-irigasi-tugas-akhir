@@ -25,6 +25,15 @@ class PemilikLahan extends Migration
                 'constraint' => '100',
                 'null' => false,
             ],
+            'reset_token' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true
+            ],
+            'reset_token_expires_at' => [
+                'type' => 'DATETIME',
+                'null' => true
+            ],
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',

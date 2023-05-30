@@ -46,7 +46,10 @@ $routes->get('/pemilik-lahan/edit-petani', 'HomePemilikLahan::editPetani', ['fil
 $routes->post('/pemilik-lahan/edit-petani', 'HomePemilikLahan::processEditPetani', ['filter' => 'authpemiliklahan']);
 $routes->get('/pemilik-lahan/ketinggian-air', 'KetinggianAirController::index', ['filter' => 'authpemiliklahan']);
 $routes->get('/pemilik-lahan/kontrol', 'KontrolController::index', ['filter' => 'authpemiliklahan']);
-
+$routes->get('/pemilik-lahan/forgot-password', 'ForgotPasswordController::index');
+$routes->post('/pemilik-lahan/forgot-password', 'ForgotPasswordController::reset');
+$routes->get('/pemilik-lahan/reset', 'ResetPasswordController::index');
+$routes->post('/pemilik-lahan/reset', 'ResetPasswordController::reset');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

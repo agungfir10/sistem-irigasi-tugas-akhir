@@ -18,8 +18,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">List Petani</h1>
-                    <a href="/pemilik-lahan/tambah-petani" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Tambah Petani</a>
+                    <h1 class="h3 mb-0 text-gray-800">Ketinggian Air</h1>
                 </div>
 
                 <!-- DataTales Example -->

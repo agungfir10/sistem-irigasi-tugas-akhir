@@ -23,12 +23,6 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('css/sb-admin-2.css') ?>" rel="stylesheet">
-
-    <style>
-        .sidebar {
-            width: 28rem !important;
-        }
-    </style>
 </head>
 
 <body id="page-top">
