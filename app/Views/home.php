@@ -300,6 +300,42 @@
         return s.join(dec);
     }
 </script>
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Tekan logout jika kamu mau keluar dari session.</div>
+            <div class="modal-footer">
+                <form action="<?= base_url('/logout'); ?>" method="post">
+                    <button type="submit" class="btn btn-primary">Logout</button>
+                </form>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
+<script src="<?= base_url('vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="<?= base_url('vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="<?= base_url('js/sb-admin-2.min.js') ?>"></script>
+
 <script type="module">
     import {
         initializeApp
@@ -365,7 +401,7 @@
         }
     });
 
-    const queryGrafikPintu1 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_1"), limitToLast(6));
+    const queryGrafikPintu1 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_1"), limitToLast(5));
     onValue(queryGrafikPintu1, (snapshot) => {
         if (snapshot.exists()) {
             const obj = snapshot.val();
@@ -476,7 +512,7 @@
         }
     })
 
-    const queryGrafikPintu2 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_2"), limitToLast(6));
+    const queryGrafikPintu2 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_2"), limitToLast(5));
     onValue(queryGrafikPintu2, (snapshot) => {
         if (snapshot.exists()) {
             const obj = snapshot.val();
@@ -504,10 +540,10 @@
                         label: "Earnings",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
-                        borderColor: "rgba(78, 115, 223, 1)",
+                        borderColor: "#1cc88a",
                         pointRadius: 3,
-                        pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                        pointBorderColor: "rgba(78, 115, 223, 1)",
+                        pointBackgroundColor: "#1cc88a",
+                        pointBorderColor: "#1cc88a",
                         pointHoverRadius: 3,
                         pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
                         pointHoverBorderColor: "rgba(78, 115, 223, 1)",
@@ -587,7 +623,7 @@
         }
     })
 
-    const queryGrafikPintu3 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_3"), limitToLast(6));
+    const queryGrafikPintu3 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_3"), limitToLast(5));
     onValue(queryGrafikPintu3, (snapshot) => {
         if (snapshot.exists()) {
             const obj = snapshot.val();
@@ -615,10 +651,10 @@
                         label: "Earnings",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
-                        borderColor: "rgba(78, 115, 223, 1)",
+                        borderColor: "#36b9cc",
                         pointRadius: 3,
-                        pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                        pointBorderColor: "rgba(78, 115, 223, 1)",
+                        pointBackgroundColor: "#36b9cc",
+                        pointBorderColor: "#36b9cc",
                         pointHoverRadius: 3,
                         pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
                         pointHoverBorderColor: "rgba(78, 115, 223, 1)",
@@ -698,7 +734,7 @@
         }
     })
 
-    const queryGrafikPintu4 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_4"), limitToLast(6));
+    const queryGrafikPintu4 = query(ref(db, 'ketinggian_air'), orderByChild("no_pintu"), equalTo("pintu_4"), limitToLast(5));
     onValue(queryGrafikPintu4, (snapshot) => {
         if (snapshot.exists()) {
             const obj = snapshot.val();
@@ -717,7 +753,7 @@
                 const minute = dateHuman.getMinutes();
                 return hour + ":" + minute;
             })
-            var ctx = document.getElementById("chart-pintu-3");
+            var ctx = document.getElementById("chart-pintu-4");
             let configPintu4 = {
                 type: 'line',
                 data: {
@@ -726,10 +762,10 @@
                         label: "Earnings",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
-                        borderColor: "rgba(78, 115, 223, 1)",
+                        borderColor: "#f6c23e",
                         pointRadius: 3,
-                        pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                        pointBorderColor: "rgba(78, 115, 223, 1)",
+                        pointBackgroundColor: "#f6c23e",
+                        pointBorderColor: "#f6c23e",
                         pointHoverRadius: 3,
                         pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
                         pointHoverBorderColor: "rgba(78, 115, 223, 1)",
@@ -809,42 +845,6 @@
         }
     })
 </script>
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Tekan logout jika kamu mau keluar dari session.</div>
-            <div class="modal-footer">
-                <form action="<?= base_url('/logout'); ?>" method="post">
-                    <button type="submit" class="btn btn-primary">Logout</button>
-                </form>
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bootstrap core JavaScript-->
-<script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
-<script src="<?= base_url('vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="<?= base_url('vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="<?= base_url('js/sb-admin-2.min.js') ?>"></script>
-
 </body>
 
 </html>
