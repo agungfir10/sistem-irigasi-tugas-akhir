@@ -14,7 +14,7 @@ class PemilikLahanModel extends Model
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
     protected $protectFields = true;
-    protected $allowedFields = ['reset_token', 'reset_token_expires_at'];
+    protected $allowedFields = ['reset_token', 'reset_token_expires_at', 'password'];
 
     // Dates
     protected $useTimestamps = false;

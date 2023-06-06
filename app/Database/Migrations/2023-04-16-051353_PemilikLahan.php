@@ -23,6 +23,7 @@ class PemilikLahan extends Migration
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => '100',
+                'unique' => true,
                 'null' => false,
             ],
             'reset_token' => [

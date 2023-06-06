@@ -147,7 +147,7 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Air Pintu 1</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Grafik Ketinggian Air Pintu 1</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -173,7 +173,7 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-success">Air Pintu 2</h6>
+                                <h6 class="m-0 font-weight-bold text-success">Grafik Ketinggian Air Pintu 2</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -199,7 +199,7 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-info">Air Pintu 3</h6>
+                                <h6 class="m-0 font-weight-bold text-info">Grafik Ketinggian Air Pintu 3</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -225,7 +225,7 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-warning">Air Pintu 4</h6>
+                                <h6 class="m-0 font-weight-bold text-warning">Grafik Ketinggian Air Pintu 4</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -323,8 +323,8 @@
     } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"
 
     const firebaseConfig = {
-        apiKey: 'pY7NZK4SENnSCujrhqCILsP225Iug5q8LD8d8pTc',
-        databaseURL: 'https://sistem-irigasi-f9d8b-default-rtdb.asia-southeast1.firebasedatabase.app'
+        apiKey: 'AIzaSyDyMcWmWEe1Yqcygov6kkYw8MRcW3yNzD8',
+        databaseURL: 'https://sistem-irigasi-db158-default-rtdb.asia-southeast1.firebasedatabase.app/'
     };
     const app = initializeApp(firebaseConfig);
 

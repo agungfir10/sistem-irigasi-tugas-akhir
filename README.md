@@ -29,3 +29,9 @@
 | name       | VARHCHAR  |
 | email      | VARCHAR   |
 | password   | VARCHAR   |
+
+## Export Query DB
+
+```
+mysqldump -u username -p nama_database > nama_file.sql
+```

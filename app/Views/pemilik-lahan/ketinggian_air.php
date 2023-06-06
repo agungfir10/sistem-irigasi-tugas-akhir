@@ -19,6 +19,9 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Riwayat Ketinggian Air</h1>
+                    <a href="#" id='generate-report' class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                        <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+                    </a>
                 </div>
 
                 <!-- DataTales Example -->
@@ -37,6 +40,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
+                                        <th>No Pintu</th>
                                         <th>Ketinggian Air (cm)</th>
                                         <th>Tanggal</th>
                                     </tr>
@@ -44,6 +48,7 @@
                                 <tfoot>
                                     <tr>
                                         <th>No.</th>
+                                        <th>No Pintu</th>
                                         <th>Ketinggian Air (cm)</th>
                                         <th>Tanggal</th>
                                     </tr>
@@ -119,53 +124,70 @@
         query,
         limitToLast,
         serverTimestamp,
-        set
+        set,
+        orderByChild
     } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"
 
     const firebaseConfig = {
-        apiKey: 'pY7NZK4SENnSCujrhqCILsP225Iug5q8LD8d8pTc',
-        databaseURL: 'https://sistem-irigasi-f9d8b-default-rtdb.asia-southeast1.firebasedatabase.app'
+        apiKey: 'AIzaSyDyMcWmWEe1Yqcygov6kkYw8MRcW3yNzD8',
+        databaseURL: 'https://sistem-irigasi-db158-default-rtdb.asia-southeast1.firebasedatabase.app'
     };
     const app = initializeApp(firebaseConfig);
 
     const db = getDatabase(app);
 
-    const ketinggianAirRef = ref(db, "ketinggian_air");
+    const ketinggianAirRef = query(ref(db, "ketinggian_air"), orderByChild("tanggal"), limitToLast(40));
 
     onValue(ketinggianAirRef, (snapshot) => {
         if (snapshot.exists()) {
+            let data = [];
             let el;
             let i = 0;
             const obj = snapshot.val();
             for (const property in obj) {
-                const dateHuman = Date(obj[property].tanggal * 1000)
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    second: 'numeric',
-                    timeZoneName: 'short'
-                };
-                const dateIndonesia = new Date(dateHuman).toLocaleDateString('id-ID', options)
-                const index = dateIndonesia.indexOf('pukul');
-                const start = dateIndonesia.slice(0, index - 1)
-                const end = dateIndonesia.slice(index + 5)
-                const datePrintable = start + end
-
-                i++
-                el += `
-                <tr>
-                    <td>${i}</td>
-                    <td>${obj[property].ketinggian_air}</td>
-                    <td>${datePrintable}</td>
-                </tr>`
+                data.push(obj[property]);
             }
+            data.reverse()
+            data.forEach((item, index) => {
+                el += `<tr>
+                    <td>${index+=1}</td>
+                    <td>${item.no_pintu}</td>
+                    <td>${item.ketinggian_air}</td>
+                    <td>${moment(item.tanggal).format('DD-MM-YYYY h:mm:ss')}</td>
+                </tr>`
+            })
             $('#tbody-ketinggian-air').html(el)
 
         }
     })
 </script>
 <?= $this->include('pemilik-lahan/partials/footer') ?>
+<script src="https://momentjs.com/downloads/moment.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script>
+    $('#generate-report').click(async (e) => {
+        const res = await fetch('https://sistem-irigasi-db158-default-rtdb.asia-southeast1.firebasedatabase.app/ketinggian_air.json')
+        const json = await res.json()
+        let data = [];
+        for (const key in json) {
+            data.push(json[key])
+        }
+
+        data.reverse()
+        moment.locale('id')
+        const dataPrintable = data.map((item) => {
+            return {
+                no_pintu: item.no_pintu,
+                ketinggian_air: item.ketinggian_air,
+                tanggal: moment(item.tanggal).format('DD-MM-YYYY h:mm:ss'),
+            }
+        })
+        printJS({
+            printable: dataPrintable,
+            properties: ['no_pintu', 'ketinggian_air', 'tanggal'],
+            type: 'json',
+            documentTitle: 'Laporan Ketinggian Air',
+            showModal: true
+        })
+    })
+</script>

@@ -21,9 +21,9 @@
 #define WIFI_SSID "realme C17"
 #define WIFI_PASSWORD "12345678"
 
-#define API_KEY "AIzaSyAlU093kSqpxriVqFlVLiQIaOgsP1C-FQQ"
-#define DATABASE_URL "sistem-irigasi-f9d8b-default-rtdb.asia-southeast1.firebasedatabase.app"  //<databaseName>.firebaseio.com or <databaseName>.<region>.firebasedatabase.app
-#define USER_EMAIL "contoh@contoh.com"
+#define API_KEY "AIzaSyDyMcWmWEe1Yqcygov6kkYw8MRcW3yNzD8"
+#define DATABASE_URL "sistem-irigasi-db158-default-rtdb.asia-southeast1.firebasedatabase.app/"  //<databaseName>.firebaseio.com or <databaseName>.<region>.firebasedatabase.app
+#define USER_EMAIL "intanimaniyah01@gmail.com"
 #define USER_PASSWORD "secret"
 
 FirebaseData fbdo;
@@ -36,7 +36,7 @@ Servo myservo2;
 Servo myservo3;
 Servo myservo4;
 
-float JARAK_BATAS = 6;
+float JARAK_BATAS = 4;
 float read_srf(int pintriger, int pinecho) {
   long durasi;
   float jarak;
@@ -101,13 +101,13 @@ void setup() {
   pinMode(pintriger4, OUTPUT);
   pinMode(pinecho4, INPUT);
   myservo.attach(16);
-  myservo.write(0);
+  myservo.write(180);
   myservo2.attach(17);
-  myservo2.write(0);
+  myservo2.write(180);
   myservo3.attach(25);
-  myservo3.write(0);
+  myservo3.write(180);
   myservo4.attach(26);
-  myservo4.write(0);
+  myservo4.write(180);
 
   pinMode(2, OUTPUT);
   pinMode(4, OUTPUT);
@@ -251,7 +251,7 @@ void loop() {
       }
       Serial.print("JARAK PINTU 4 = ");
       Serial.println(jarak4);
-      delay(15);  
+      delay(15);
     }
   }
 }

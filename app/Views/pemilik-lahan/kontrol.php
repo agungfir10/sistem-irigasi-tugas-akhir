@@ -127,8 +127,8 @@
     } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js"
 
     const firebaseConfig = {
-        apiKey: 'pY7NZK4SENnSCujrhqCILsP225Iug5q8LD8d8pTc',
-        databaseURL: 'https://sistem-irigasi-f9d8b-default-rtdb.asia-southeast1.firebasedatabase.app'
+        apiKey: 'AIzaSyDyMcWmWEe1Yqcygov6kkYw8MRcW3yNzD8',
+        databaseURL: 'https://sistem-irigasi-db158-default-rtdb.asia-southeast1.firebasedatabase.app/'
     };
     const app = initializeApp(firebaseConfig);
 

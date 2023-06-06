@@ -33,17 +33,18 @@ class Email extends BaseConfig
     /**
      * SMTP Username
      */
-    public string $SMTPUser = 'agungfirid@gmail.com';
+    public string $SMTPUser = 'intanimaniyah01@gmail.com';
 
     /**
      * SMTP Password
      */
-    public string $SMTPPass = 'zzmcnynfpzinwyrj';
+    public string $SMTPPass = 'apkjkpsqdjksbwpb';
 
     /**
      * SMTP Port
      */
-    public int $SMTPPort = 25;
+    // public int $SMTPPort = 25;
+    public int $SMTPPort = 465;
 
     /**
      * SMTP Timeout (in seconds)
@@ -58,7 +59,8 @@ class Email extends BaseConfig
     /**
      * SMTP Encryption. Either tls or ssl
      */
-    public string $SMTPCrypto = 'tls';
+    // public string $SMTPCrypto = 'tls';
+    public string $SMTPCrypto = 'ssl';
 
     /**
      * Enable word-wrap

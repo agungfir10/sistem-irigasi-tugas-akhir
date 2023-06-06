@@ -48,7 +48,10 @@ class ResetPasswordController extends BaseController
 
         if ($user === null) {
             // jika token tidak valid, tampilkan pesan error
-            return view('auth/reset_password', ['error' => 'Invalid or expired token']);
+            session()->setFlashdata('status', 'danger');
+            session()->setFlashdata('message', 'Token tidak valid');
+
+            return view('auth/reset_password');
         }
 
         // ambil password baru dan

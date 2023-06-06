@@ -40,9 +40,11 @@
                                             <?= session()->get('message') ?>
                                         </p>
                                     <?php endif ?>
+
                                     <?php if (isset($token)) : ?>
                                         <form class="user" action="<?= base_url('/pemilik-lahan/reset') ?>" method="post">
                                             <div class="form-group">
+                                                <input type="hidden" name="token" value="<?= $token ?>">
                                                 <input type="password" class="form-control form-control-user" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-user btn-block">
