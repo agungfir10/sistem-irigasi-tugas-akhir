@@ -29,8 +29,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index', ['filter' => 'auth']);
-$routes->get('/login', 'AuthController::index', ['filter' => 'authverify']);
+$routes->get('/', 'Home::index');
 $routes->post('/login', 'AuthController::process_login');
 $routes->post('/logout', 'AuthController::process_logout');
 
@@ -47,7 +46,10 @@ $routes->get('/pemilik-lahan/edit-petani', 'HomePemilikLahan::editPetani', ['fil
 $routes->post('/pemilik-lahan/edit-petani', 'HomePemilikLahan::processEditPetani', ['filter' => 'authpemiliklahan']);
 $routes->get('/pemilik-lahan/ketinggian-air', 'KetinggianAirController::index', ['filter' => 'authpemiliklahan']);
 $routes->get('/pemilik-lahan/kontrol', 'KontrolController::index', ['filter' => 'authpemiliklahan']);
-
+$routes->get('/pemilik-lahan/forgot-password', 'ForgotPasswordController::index');
+$routes->post('/pemilik-lahan/forgot-password', 'ForgotPasswordController::reset');
+$routes->get('/pemilik-lahan/reset', 'ResetPasswordController::index');
+$routes->post('/pemilik-lahan/reset', 'ResetPasswordController::reset');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -10,6 +10,9 @@
 # OS X Thumbnails
 ._*
 
+# Zip
+*.zip
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
