@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Petugas;
 
 use App\Controllers\BaseController;
-use App\Models\PemilikLahanModel;
+use App\Models\PetugasModel;
 use CodeIgniter\I18n\Time;
 
 class ResetPasswordController extends BaseController
@@ -11,7 +11,7 @@ class ResetPasswordController extends BaseController
 
     public function index()
     {
-        $model = new PemilikLahanModel();
+        $model = new PetugasModel();
 
         // ambil token dari parameter url
         $token = $this->request->getGet('token');
@@ -31,12 +31,12 @@ class ResetPasswordController extends BaseController
         $data = [
             'token' => $token
         ];
-        return view('auth/reset_password', $data);
+        return view('petugas/auth/reset_password', $data);
     }
 
     public function reset()
     {
-        $model = new PemilikLahanModel();
+        $model = new PetugasModel();
 
         // ambil token dari input field
         $token = $this->request->getPost('token');
@@ -51,7 +51,7 @@ class ResetPasswordController extends BaseController
             session()->setFlashdata('status', 'danger');
             session()->setFlashdata('message', 'Token tidak valid');
 
-            return view('auth/reset_password');
+            return view('petugas/auth/reset_password');
         }
 
         // ambil password baru dan

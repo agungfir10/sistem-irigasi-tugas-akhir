@@ -2,12 +2,12 @@
 
 namespace App\Filters;
 
-use App\Models\PemilikLahanModel;
+use App\Models\PetugasModel;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class PemilikiLahanAuthVerifyFilter implements FilterInterface
+class PetugasAuthFilter implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -26,15 +26,15 @@ class PemilikiLahanAuthVerifyFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
-        $email = session()->get('pemilik-lahan');
-        $user = new PemilikLahanModel();
+        $email = session()->get('petugas');
+        $user = new PetugasModel();
         $userFound = $user->where([
             'email' => $email
         ])->first();
 
-        if (!is_null($userFound)) {
-            return redirect()->to(base_url('/pemilik-lahan'));
+        if (is_null($userFound)) {
+            session()->remove('petugas');
+            return redirect()->to(base_url('/petugas/login'));
         }
     }
 

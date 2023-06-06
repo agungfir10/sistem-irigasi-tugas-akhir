@@ -2,10 +2,8 @@
 
 namespace Config;
 
-use App\Filters\AuthFilter;
-use App\Filters\AuthVerifyFilter;
-use App\Filters\PemilikiLahanAuthFilter;
-use App\Filters\PemilikiLahanAuthVerifyFilter;
+use App\Filters\PetugasAuthFilter;
+use App\Filters\PetugasAuthVerifyFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -25,10 +23,8 @@ class Filters extends BaseConfig
         'honeypot' => Honeypot::class,
         'invalidchars' => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'auth' => AuthFilter::class,
-        'authverify' => AuthVerifyFilter::class,
-        'authpemiliklahan' => PemilikiLahanAuthFilter::class,
-        'authverifypemiliklahan' => PemilikiLahanAuthVerifyFilter::class,
+        'authpetugas' => PetugasAuthFilter::class,
+        'authverifypetugas' => PetugasAuthVerifyFilter::class,
     ];
 
     /**

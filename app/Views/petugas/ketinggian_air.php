@@ -1,9 +1,9 @@
-<?= $this->include('pemilik-lahan/partials/header') ?>
+<?= $this->include('petugas/templates/header') ?>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-    <?= $this->include('pemilik-lahan/partials/sidebar') ?>
+    <?= $this->include('petugas/templates/sidebar') ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -11,7 +11,7 @@
         <!-- Main Content -->
         <div id="content">
 
-            <?= $this->include('pemilik-lahan/partials/topbar') ?>
+            <?= $this->include('petugas/templates/topbar') ?>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -99,7 +99,7 @@
                             <?= $petani['email'] ?>
                         </div>
                         <div class="modal-footer">
-                            <form action="<?= base_url('/pemilik-lahan/hapus-petani'); ?>" method="post">
+                            <form action="<?= base_url('/petugas/hapus-petani'); ?>" method="post">
                                 <input type="hidden" value="<?= $petani['email'] ?>" name='email' id="email">
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
@@ -161,7 +161,7 @@
         }
     })
 </script>
-<?= $this->include('pemilik-lahan/partials/footer') ?>
+<?= $this->include('petugas/templates/footer') ?>
 <script src="https://momentjs.com/downloads/moment.js"></script>
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 <script>

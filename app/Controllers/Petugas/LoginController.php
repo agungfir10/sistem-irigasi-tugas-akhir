@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Petugas;
 
-use App\Models\PemilikLahanModel;
-use App\Models\UserModel;
+use App\Controllers\BaseController;
+use App\Models\PetugasModel;
 
-class AuthControllerPemilikLahan extends BaseController
+class LoginController extends BaseController
 {
     public function index()
     {
-        return view('auth/pemiliklahan/login');
+        return view('petugas/auth/login');
     }
 
-    public function process_login()
+    public function logIn()
     {
-        $user = new PemilikLahanModel();
+        $user = new PetugasModel();
         $email = $this->request->getVar('email');
         $password = $this->request->getVar('password');
 
@@ -24,9 +24,9 @@ class AuthControllerPemilikLahan extends BaseController
 
         if ($userFound) {
             if (password_verify($password, $userFound['password'])) {
-                session()->set('pemilik-lahan', $userFound['email']);
+                session()->set('petugas', $userFound['email']);
 
-                return redirect()->to(base_url('/pemilik-lahan'));
+                return redirect()->to(base_url('/petugas'));
             } else {
                 session()->setFlashdata('error', 'Username dan Password Salah');
                 return redirect()->back();
@@ -36,12 +36,4 @@ class AuthControllerPemilikLahan extends BaseController
             return redirect()->back();
         }
     }
-
-    public function process_logout()
-    {
-
-        session()->remove('pemilik-lahan');
-        return redirect()->to('/pemilik-lahan');
-    }
-
 }

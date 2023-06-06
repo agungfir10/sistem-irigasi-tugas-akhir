@@ -29,27 +29,21 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->post('/login', 'AuthController::process_login');
-$routes->post('/logout', 'AuthController::process_logout');
+$routes->get('/', 'HomeController::index');
 
-$routes->get('/pemilik-lahan', 'HomePemilikLahan::index', ['filter' => 'authpemiliklahan']);
-$routes->get('/pemilik-lahan/login', 'AuthControllerPemilikLahan::index', ['filter' => 'authverifypemiliklahan']);
-$routes->post('/pemilik-lahan/login', 'AuthControllerPemilikLahan::process_login');
-$routes->post('/pemilik-lahan/logout', 'AuthControllerPemilikLahan::process_logout');
+// Auth Petugas
+$routes->get('/petugas', 'Petugas\DashboardController::index', ['filter' => 'authpetugas']);
+$routes->get('/petugas/login', 'Petugas\LoginController::index', ['filter' => 'authverifypetugas']);
+$routes->post('/petugas/login', 'Petugas\LoginController::logIn', ['filter' => 'authverifypetugas']);
+$routes->post('/petugas/logout', 'Petugas\LogoutController::logOut', ['filter' => 'authpetugas']);
 
-$routes->get('/pemilik-lahan/petani', 'HomePemilikLahan::listPetani');
-$routes->get('/pemilik-lahan/tambah-petani', 'HomePemilikLahan::tambahPetani');
-$routes->post('/pemilik-lahan/tambah-petani', 'HomePemilikLahan::processTambahPetani');
-$routes->post('/pemilik-lahan/hapus-petani', 'HomePemilikLahan::deletePetani');
-$routes->get('/pemilik-lahan/edit-petani', 'HomePemilikLahan::editPetani', ['filter' => 'authpemiliklahan']);
-$routes->post('/pemilik-lahan/edit-petani', 'HomePemilikLahan::processEditPetani', ['filter' => 'authpemiliklahan']);
-$routes->get('/pemilik-lahan/ketinggian-air', 'KetinggianAirController::index', ['filter' => 'authpemiliklahan']);
-$routes->get('/pemilik-lahan/kontrol', 'KontrolController::index', ['filter' => 'authpemiliklahan']);
-$routes->get('/pemilik-lahan/forgot-password', 'ForgotPasswordController::index');
-$routes->post('/pemilik-lahan/forgot-password', 'ForgotPasswordController::reset');
-$routes->get('/pemilik-lahan/reset', 'ResetPasswordController::index');
-$routes->post('/pemilik-lahan/reset', 'ResetPasswordController::reset');
+// Feature Petugas
+$routes->get('/petugas/ketinggian-air', 'Petugas\KetinggianAirController::index', ['filter' => 'authpetugas']);
+$routes->get('/petugas/kontrol', 'Petugas\KontrolController::index', ['filter' => 'authpetugas']);
+$routes->get('/petugas/forgot-password', 'Petugas\ForgotPasswordController::index');
+$routes->post('/petugas/forgot-password', 'Petugas\ForgotPasswordController::reset');
+$routes->get('/petugas/reset', 'Petugas\ResetPasswordController::index');
+$routes->post('/petugas/reset', 'Petugas\ResetPasswordController::reset');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

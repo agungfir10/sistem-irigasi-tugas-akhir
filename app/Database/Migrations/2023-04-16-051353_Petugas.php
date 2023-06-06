@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class PemilikLahan extends Migration
+class Petugas extends Migration
 {
     public function up()
     {
@@ -42,12 +42,12 @@ class PemilikLahan extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('pemilik_lahan');
+        $this->forge->createTable('petugas');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('pemilik_lahan');
+        $this->forge->dropTable('petugas');
     }
 }

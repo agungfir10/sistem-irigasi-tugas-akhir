@@ -4,16 +4,16 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 
-class PemilikLahanSeeder extends Seeder
+class Petugas extends Seeder
 {
     public function run()
     {
         $data = [
-            'name' => 'Pemilik Lahan',
-            'email' => 'pemilik_lahan@sistem-irigasi.com',
+            'name' => 'petugas',
+            'email' => 'petugas@sistem-irigasi.site',
             'password' => password_hash('secret', PASSWORD_BCRYPT),
         ];
-        $this->db->table('pemilik_lahan')->insert($data);
+        $this->db->table('petugas')->insert($data);
 
         $data = [
             'name' => 'Agung Firmansyah',
@@ -22,7 +22,7 @@ class PemilikLahanSeeder extends Seeder
         ];
 
         // Using Query Builder
-        $this->db->table('pemilik_lahan')->insert($data);
+        $this->db->table('petugas')->insert($data);
 
 
         $data = [
@@ -32,6 +32,6 @@ class PemilikLahanSeeder extends Seeder
         ];
 
         // Using Query Builder
-        $this->db->table('pemilik_lahan')->insert($data);
+        $this->db->table('petugas')->insert($data);
     }
 }

@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Petugas;
 
 use App\Controllers\BaseController;
-use App\Models\PemilikLahanModel;
+use App\Models\PetugasModel;
 
 class KetinggianAirController extends BaseController
 {
     public function index()
     {
-        $userModel = new PemilikLahanModel();
-        $email = session()->get('pemilik-lahan');
+        $userModel = new PetugasModel();
+        $email = session()->get('petugas');
 
         $user = $userModel->where([
             'email' => $email
@@ -19,9 +19,8 @@ class KetinggianAirController extends BaseController
         $data = [
             'title' => 'Dashboard',
             'user' => $user,
-            'listPetani' => []
         ];
 
-        return view('pemilik-lahan/ketinggian_air', $data);
+        return view('petugas/ketinggian_air', $data);
     }
 }

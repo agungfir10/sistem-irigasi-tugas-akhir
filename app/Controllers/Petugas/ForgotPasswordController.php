@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Petugas;
 
 use App\Controllers\BaseController;
-use App\Models\PemilikLahanModel;
-use App\Models\UserModel;
+use App\Models\PetugasModel;
 use CodeIgniter\I18n\Time;
 use Config\Services;
 
@@ -12,12 +11,12 @@ class ForgotPasswordController extends BaseController
 {
     public function index()
     {
-        return view('auth/forgot_password');
+        return view('petugas/auth/forgot_password');
     }
 
     public function reset()
     {
-        $model = new PemilikLahanModel();
+        $model = new PetugasModel();
 
         // ambil email dari input field
         $email = $this->request->getPost('email');
@@ -38,20 +37,20 @@ class ForgotPasswordController extends BaseController
 
         $model->update($user['id'], ['reset_token' => $token, 'reset_token_expires_at' => $expires_at]);
 
-        $this->send_otp_email($user['email'], $token);
+        $this->sentOtpEmail($user['email'], $token);
 
         session()->setFlashdata('status', 'success');
         session()->setFlashdata('message', 'Instruksi reset password telah dikirim ke email Anda!');
-        return redirect()->to('/pemilik-lahan/login');
+        return redirect()->to('/petugas/login');
     }
 
-    public function send_otp_email($to, $token)
+    public function sentOtpEmail($to, $token)
     {
         $email = Services::email();
         $email->setTo($to);
-        $email->setFrom('agungfirid@gmail.com', 'Reset Password');
+        $email->setFrom('intanimaniyah01@gmail.com', 'Reset Password');
         $email->setSubject('Reset Password');
-        $email->setMessage('Click the following link to reset your password: ' . base_url('pemilik-lahan/reset?token=' . $token));
+        $email->setMessage('Click the following link to reset your password: ' . base_url('petugas/reset?token=' . $token));
         if ($email->send()) {
             echo 'Email successfully sent';
         } else {

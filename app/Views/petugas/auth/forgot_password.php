@@ -34,28 +34,21 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Login Untuk Petugas PSDA</h1>
+                                        <h1 class="h6 text-gray-900 mb-4">Masukan Email Untuk dikirimkan Link Lupa Password</h1>
                                     </div>
                                     <?php if (session()->get('error')) : ?>
                                         <div class="alert alert-danger">
                                             <?= session()->get('error') ?>
                                         </div>
                                     <?php endif; ?>
-                                    <form class="user" action="<?= base_url('/pemilik-lahan/login') ?>" method="post">
+                                    <form class="user" action="<?= base_url('/petugas/forgot-password') ?>" method="post">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password">
-                                        </div>
                                         <button type="submit" href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Kirim Link
                                         </button>
                                     </form>
-                                    <hr>
-                                    <a href="/pemilik-lahan/forgot-password" class="mt-3 d-flex justify-content-center">
-                                        Lupa password?
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -69,14 +62,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
+    <script src="<?= base_url('vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?= base_url('vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url('js/sb-admin-2.min.js') ?>"></script>
 
 </body>
 

@@ -1,7 +1,7 @@
-<?= $this->include('pemilik-lahan/partials/header') ?>
+<?= $this->include('petugas/templates/header') ?>
 <!-- Page Wrapper -->
 <div id="wrapper">
-    <?= $this->include('pemilik-lahan/partials/sidebar') ?>
+    <?= $this->include('petugas/templates/sidebar') ?>
 
     </ul>
     <!-- End of Sidebar -->
@@ -148,18 +148,6 @@
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Grafik Ketinggian Air Pintu 1</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -174,18 +162,6 @@
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-success">Grafik Ketinggian Air Pintu 2</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -200,18 +176,6 @@
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-info">Grafik Ketinggian Air Pintu 3</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -226,18 +190,6 @@
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-warning">Grafik Ketinggian Air Pintu 4</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
@@ -395,7 +347,7 @@
                 data: {
                     labels: labelsMap,
                     datasets: [{
-                        label: "Earnings",
+                        label: "Ketinggian",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
                         borderColor: "rgba(78, 115, 223, 1)",
@@ -471,7 +423,7 @@
                         callbacks: {
                             label: function(tooltipItem, chart) {
                                 var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                                return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                                return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
                             }
                         }
                     }
@@ -506,7 +458,7 @@
                 data: {
                     labels: labelsMap,
                     datasets: [{
-                        label: "Earnings",
+                        label: "Ketinggian",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
                         borderColor: "#1cc88a",
@@ -582,7 +534,7 @@
                         callbacks: {
                             label: function(tooltipItem, chart) {
                                 var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                                return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                                return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
                             }
                         }
                     }
@@ -617,7 +569,7 @@
                 data: {
                     labels: labelsMap,
                     datasets: [{
-                        label: "Earnings",
+                        label: "Ketinggian",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
                         borderColor: "#36b9cc",
@@ -693,7 +645,7 @@
                         callbacks: {
                             label: function(tooltipItem, chart) {
                                 var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                                return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                                return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
                             }
                         }
                     }
@@ -728,7 +680,7 @@
                 data: {
                     labels: labelsMap,
                     datasets: [{
-                        label: "Earnings",
+                        label: "Ketinggian",
                         lineTension: 0.3,
                         backgroundColor: "rgba(78, 115, 223, 0.05)",
                         borderColor: "#f6c23e",
@@ -804,7 +756,7 @@
                         callbacks: {
                             label: function(tooltipItem, chart) {
                                 var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                                return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                                return datasetLabel + ': ' + number_format(tooltipItem.yLabel);
                             }
                         }
                     }
@@ -814,4 +766,4 @@
         }
     })
 </script>
-<?= $this->include('pemilik-lahan/partials/footer') ?>
+<?= $this->include('petugas/templates/footer') ?>

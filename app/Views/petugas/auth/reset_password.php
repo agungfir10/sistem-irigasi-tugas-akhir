@@ -12,7 +12,7 @@
     <title>Sistem Irigasi - Login</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?= base_url('vendor/fontawesome-free/css/all.min.css') ?>" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -42,17 +42,17 @@
                                     <?php endif ?>
 
                                     <?php if (isset($token)) : ?>
-                                        <form class="user" action="<?= base_url('/pemilik-lahan/reset') ?>" method="post">
+                                        <form class="user" action="<?= base_url('/petugas/reset') ?>" method="post">
                                             <div class="form-group">
                                                 <input type="hidden" name="token" value="<?= $token ?>">
-                                                <input type="password" class="form-control form-control-user" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                                <input type="password" class="form-control form-control-user" id="password" name="password" aria-describedby="emailHelp" placeholder="Enter password...">
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-user btn-block">
                                                 Ganti Password
                                             </button>
                                         </form>
                                     <?php endif; ?>
-                                    <a href="<?= base_url('/pemilik-lahan/login') ?>" class='mt-2 d-block text-center'>Login Petugas PSDA</a>
+                                    <a href="<?= base_url('/petugas/login') ?>" class='mt-2 d-block text-center'>Login Petugas PSDA</a>
 
                                 </div>
                             </div>

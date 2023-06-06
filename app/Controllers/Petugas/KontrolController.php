@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Petugas;
 
 use App\Controllers\BaseController;
-use App\Models\PemilikLahanModel;
-use App\Models\UserModel;
+use App\Models\PetugasModel;
 
 class KontrolController extends BaseController
 {
     public function index()
     {
-        $userModel = new PemilikLahanModel();
-        $email = session()->get('pemilik-lahan');
+        $userModel = new PetugasModel();
+        $email = session()->get('petugas');
 
         $user = $userModel->where([
             'email' => $email
@@ -21,6 +20,6 @@ class KontrolController extends BaseController
             'title' => 'Dashboard',
             'user' => $user,
         ];
-        return view('pemilik-lahan/kontrol', $data);
+        return view('petugas/kontrol', $data);
     }
 }
