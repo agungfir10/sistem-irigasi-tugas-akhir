@@ -278,6 +278,14 @@
     </div>
 </div>
 
+<script>
+    Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+            console.log('Pengguna telah menyetujui permintaan notifikasi');
+        }
+    });
+</script>
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
 <script src="<?= base_url('vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
@@ -287,6 +295,24 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('js/sb-admin-2.min.js') ?>"></script>
+
+<script>
+    Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+            console.log('Pengguna telah menyetujui permintaan notifikasi');
+        }
+    });
+</script>
+
+<script>
+    function sendNotif(title, message) {
+        if (Notification.permission === 'granted') {
+            var notification = new Notification(title, {
+                body: message,
+            });
+        }
+    }
+</script>
 
 <script type="module">
     import {
@@ -318,6 +344,10 @@
     onValue(pintu1Ref, (snapshot) => {
         if (snapshot.exists()) {
             const data = snapshot.val();
+            if (data.ketinggian_air <= 4) {
+                sendNotif('Sistem Irigasi', 'Pintu Air 1 Penuh!')
+            }
+
             $('#pintu-1').text(data.status ? 'Terbuka' : 'Tertutup');
             $('#ketinggian-air-1').text(`Ketinggian : ${data.ketinggian_air}cm`)
         }
@@ -328,6 +358,10 @@
     onValue(pintu2Ref, (snapshot) => {
         if (snapshot.exists()) {
             const data = snapshot.val();
+            if (data.ketinggian_air <= 4) {
+                sendNotif('Sistem Irigasi', 'Pintu Air 2 Penuh!')
+            }
+
             $('#pintu-2').text(data.status ? 'Terbuka' : 'Tertutup');
             $('#ketinggian-air-2').text(`Ketinggian : ${data.ketinggian_air}cm`)
         }
@@ -338,6 +372,9 @@
     onValue(pintu3Ref, (snapshot) => {
         if (snapshot.exists()) {
             const data = snapshot.val();
+            if (data.ketinggian_air <= 4) {
+                sendNotif('Sistem Irigasi', 'Pintu Air 3 Penuh!')
+            }
             $('#pintu-3').text(data.status ? 'Terbuka' : 'Tertutup');
             $('#ketinggian-air-3').text(`Ketinggian : ${data.ketinggian_air}cm`)
         }
@@ -348,6 +385,9 @@
     onValue(pintu3Ref, (snapshot) => {
         if (snapshot.exists()) {
             const data = snapshot.val();
+            if (data.ketinggian_air <= 4) {
+                sendNotif('Sistem Irigasi', 'Pintu Air 3 Penuh!')
+            }
             $('#pintu-4').text(data.status ? 'Terbuka' : 'Tertutup');
             $('#ketinggian-air-4').text(`Ketinggian : ${data.ketinggian_air}cm`)
         }

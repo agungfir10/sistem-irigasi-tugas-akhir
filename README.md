@@ -35,3 +35,15 @@
 ```
 mysqldump -u username -p nama_database > nama_file.sql
 ```
+
+# Ringkasan
+
+## Web
+
+|                        |               |
+| ---------------------- | ------------- |
+| Bahasa Pemrograman     | PHP           |
+| Framework              | Codeigniter 4 |
+| Framework CSS/Tampilan | Bootstrap 4   |
+| Template Admin         | SB Admin 2    |
+| JavaScript Library     | Jquery        |
